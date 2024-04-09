@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://2gfifuohx3wr"]
+
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_dvt74"]
+[ext_resource type="PackedScene" uid="uid://bjcnwcxo0d4eq" path="res://scenes/player.tscn" id="1_ujjgw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ikqk"]
+size = Vector2(153, 5858.89)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_dvt74")
+
+[node name="Player" parent="." instance=ExtResource("1_ujjgw")]
+position = Vector2(-807, -2)
+scale = Vector2(0.467404, 0.467404)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Resetter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resetter"]
+position = Vector2(-1267, -87)
+rotation = 3.14159
+scale = Vector2(-0.38439, -0.293077)
+shape = SubResource("RectangleShape2D_6ikqk")
+
+[connection signal="area_entered" from="Resetter" to="." method="_on_resetter_area_entered"]

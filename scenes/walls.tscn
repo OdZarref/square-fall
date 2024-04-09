@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://h1luerk4tf73"]
+
+[ext_resource type="Texture2D" uid="uid://tkfki0nhn3iw" path="res://1.png" id="1_0u4av"]
+[ext_resource type="Script" path="res://scenes/walls.gd" id="1_7gt2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlau6"]
+size = Vector2(35.8487, 375.5)
+
+[node name="Walls" type="Node2D"]
+script = ExtResource("1_7gt2x")
+
+[node name="UpperWall" type="Area2D" parent="."]
+position = Vector2(-67, -624)
+scale = Vector2(1.24173, 3.2987)
+
+[node name="Sprite2D" type="Sprite2D" parent="UpperWall"]
+texture_filter = 1
+position = Vector2(514.198, 71)
+scale = Vector2(2.21219, 23.4688)
+texture = ExtResource("1_0u4av")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
+position = Vector2(513.971, 72.2224)
+shape = SubResource("RectangleShape2D_wlau6")
+
+[node name="DownWall" type="Area2D" parent="."]
+position = Vector2(-62, 858)
+scale = Vector2(1.243, 3.53144)
+
+[node name="Sprite2D" type="Sprite2D" parent="DownWall"]
+texture_filter = 1
+position = Vector2(514.198, 71)
+scale = Vector2(2.21219, 23.4688)
+texture = ExtResource("1_0u4av")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall"]
+position = Vector2(513.971, 72.2224)
+shape = SubResource("RectangleShape2D_wlau6")
