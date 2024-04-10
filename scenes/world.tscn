@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://2gfifuohx3wr"]
+[gd_scene load_steps=5 format=3 uid="uid://2gfifuohx3wr"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_dvt74"]
 [ext_resource type="PackedScene" uid="uid://bjcnwcxo0d4eq" path="res://scenes/player.tscn" id="1_ujjgw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3le2"]
+size = Vector2(160.112, 159.042)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ikqk"]
-size = Vector2(153, 5858.89)
+size = Vector2(1036.47, 1724.99)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_dvt74")
@@ -13,15 +16,21 @@ script = ExtResource("1_dvt74")
 position = Vector2(-807, -2)
 scale = Vector2(0.467404, 0.467404)
 
+[node name="PointDetector" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PointDetector"]
+position = Vector2(-0.895386, -0.360524)
+shape = SubResource("RectangleShape2D_m3le2")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
 [node name="Resetter" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Resetter"]
-position = Vector2(-1267, -87)
-rotation = 3.14159
-scale = Vector2(-0.38439, -0.293077)
+position = Vector2(-1390, -621)
+scale = Vector2(0.38439, 0.293077)
 shape = SubResource("RectangleShape2D_6ikqk")
 
+[connection signal="area_entered" from="Player/PointDetector" to="." method="_on_point_detector_area_entered"]
 [connection signal="area_entered" from="Resetter" to="." method="_on_resetter_area_entered"]
