@@ -23,6 +23,7 @@ polygon = PackedVector2Array(-1954, -676, -1975, 953, 1773, 958, 1650, -1002, -1
 follow_viewport_enabled = true
 
 [node name="Label" type="Label" parent="HUD"]
+texture_filter = 1
 offset_left = -120.0
 offset_top = -641.0
 offset_right = 132.0

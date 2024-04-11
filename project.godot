@@ -14,3 +14,11 @@ config/name="square fall"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
