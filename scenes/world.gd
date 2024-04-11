@@ -45,6 +45,6 @@ func _on_resetter_area_entered(area):
 func _on_point_detector_area_entered(area):
 	if area.name == 'CenterDetector':
 		points += 1
-		print(points)
+		get_node('HUD').get_node('Label').text = str(points)
 	else:
 		get_tree().reload_current_scene()

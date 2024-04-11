@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://h1luerk4tf73"]
+[gd_scene load_steps=6 format=3 uid="uid://h1luerk4tf73"]
 
 [ext_resource type="Texture2D" uid="uid://tkfki0nhn3iw" path="res://1.png" id="1_0u4av"]
 [ext_resource type="Script" path="res://scenes/walls.gd" id="1_7gt2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlau6"]
 size = Vector2(35.8487, 375.839)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ovbq5"]
+polygon = PackedVector2Array(32.1802, -296.48, 32.1473, -293.604, 48.221, -293.604, 67.5094, -293.604, 67.5784, -644.496, 32.1802, -644.496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc5br"]
 size = Vector2(20, 324.5)
@@ -18,6 +21,7 @@ position = Vector2(-67, -624)
 scale = Vector2(1.24173, 3.2987)
 
 [node name="Sprite2D" type="Sprite2D" parent="UpperWall"]
+modulate = Color(0, 0.560784, 0.756863, 1)
 texture_filter = 1
 position = Vector2(53.957, -53.0512)
 scale = Vector2(2.21219, 23.4688)
@@ -25,23 +29,33 @@ texture = ExtResource("1_0u4av")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
 position = Vector2(53.1516, -52.9279)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wlau6")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="UpperWall"]
+position = Vector2(4.02664, 449.268)
+scale = Vector2(1.00102, 1.07056)
+occluder = SubResource("OccluderPolygon2D_ovbq5")
 
 [node name="DownWall" type="Area2D" parent="."]
 position = Vector2(-62, 858)
 scale = Vector2(1.243, 3.53144)
 
 [node name="Sprite2D" type="Sprite2D" parent="DownWall"]
+modulate = Color(0, 0.560784, 0.756863, 1)
 texture_filter = 1
 position = Vector2(49.8793, -11.8932)
 scale = Vector2(2.21219, 23.4688)
 texture = ExtResource("1_0u4av")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall"]
+visible = false
 position = Vector2(49.8794, -11.4327)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wlau6")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DownWall"]
+position = Vector2(-2.38419e-07, 490.168)
+scale = Vector2(1.00102, 1.07056)
+occluder = SubResource("OccluderPolygon2D_ovbq5")
 
 [node name="CenterDetector" type="Area2D" parent="."]
 
