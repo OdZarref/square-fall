@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://2gfifuohx3wr"]
+[gd_scene load_steps=7 format=3 uid="uid://2gfifuohx3wr"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_dvt74"]
 [ext_resource type="PackedScene" uid="uid://bjcnwcxo0d4eq" path="res://scenes/player.tscn" id="1_ujjgw"]
@@ -9,6 +9,9 @@ size = Vector2(160.112, 159.042)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ikqk"]
 size = Vector2(1036.47, 1724.99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg36"]
+size = Vector2(166, 129)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_dvt74")
@@ -22,7 +25,7 @@ polygon = PackedVector2Array(-1954, -676, -1975, 953, 1773, 958, 1650, -1002, -1
 [node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Label" type="Label" parent="HUD"]
+[node name="Score" type="Label" parent="HUD"]
 texture_filter = 1
 offset_left = -120.0
 offset_top = -641.0
@@ -33,8 +36,23 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Start" type="Label" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -951.0
+offset_top = -390.0
+offset_right = -189.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "press space to jump"
+
 [node name="Player" parent="." instance=ExtResource("1_ujjgw")]
-position = Vector2(-203, -290)
+position = Vector2(-470, -799)
 scale = Vector2(0.467404, 0.467404)
 
 [node name="PointDetector" type="Area2D" parent="Player"]
@@ -61,5 +79,14 @@ position = Vector2(-1390, -621)
 scale = Vector2(0.38439, 0.293077)
 shape = SubResource("RectangleShape2D_6ikqk")
 
+[node name="CenterPauseGame" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterPauseGame"]
+position = Vector2(-472, 56)
+shape = SubResource("RectangleShape2D_rtg36")
+
+[node name="AllWalls" type="Node" parent="."]
+
 [connection signal="area_entered" from="Player/PointDetector" to="." method="_on_point_detector_area_entered"]
 [connection signal="area_entered" from="Resetter" to="." method="_on_resetter_area_entered"]
+[connection signal="body_entered" from="CenterPauseGame" to="." method="_on_center_pause_game_body_entered"]
