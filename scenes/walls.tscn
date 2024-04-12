@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://h1luerk4tf73"]
 
-[ext_resource type="Texture2D" uid="uid://tkfki0nhn3iw" path="res://1.png" id="1_0u4av"]
 [ext_resource type="Script" path="res://scenes/walls.gd" id="1_7gt2x"]
+[ext_resource type="Texture2D" uid="uid://1egxn5ymeiih" path="res://assets/1.png" id="2_f3elu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlau6"]
 size = Vector2(35.8487, 375.839)
@@ -25,7 +25,7 @@ modulate = Color(0, 0.560784, 0.756863, 1)
 texture_filter = 1
 position = Vector2(53.957, -53.0512)
 scale = Vector2(2.21219, 23.4688)
-texture = ExtResource("1_0u4av")
+texture = ExtResource("2_f3elu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
 position = Vector2(53.1516, -52.9279)
@@ -45,7 +45,7 @@ modulate = Color(0, 0.560784, 0.756863, 1)
 texture_filter = 1
 position = Vector2(49.8793, -11.8932)
 scale = Vector2(2.21219, 23.4688)
-texture = ExtResource("1_0u4av")
+texture = ExtResource("2_f3elu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownWall"]
 visible = false
